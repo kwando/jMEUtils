@@ -99,6 +99,7 @@ final class HSLAColor {
     return new HSLAColor(H / 360f, S, L, rgba.a);
   }
 
+  @Override
   public String toString() {
     return String.format("HSLA[%.2f %.2f %.2f %.2f]", h, s, l, a);
   }
