@@ -20,26 +20,6 @@ final class HSLAColor {
     this.a = alpha;
   }
 
-  HSLAColor darken(float amount) {
-    l = clamp(l - amount, 0, 1);
-    return this;
-  }
-
-  HSLAColor lighten(float amount) {
-    l = clamp(l + amount, 0, 1);
-    return this;
-  }
-
-  HSLAColor saturate(float amount) {
-    s = clamp(s + amount, 0, 1);
-    return this;
-  }
-
-  HSLAColor desaturate(float amount) {
-    s = clamp(s - amount, 0, 1);
-    return this;
-  }
-
   ColorRGBA toRGBA(ColorRGBA rgba) {
     float m2 = l <= 0.5f ? l * (s + 1) : l + s - l * s;
     float m1 = l * 2 - m2;
@@ -55,9 +35,19 @@ final class HSLAColor {
   ColorRGBA toRGBA() {
     return toRGBA(new ColorRGBA());
   }
-  
+
   public HSLAColor adjustHue(float f) {
     h = (h + f) % 1;
+    return this;
+  }
+
+  public HSLAColor adjustLightness(float f) {
+    l = clamp(l + f, 0, 1);
+    return this;
+  }
+
+  public HSLAColor adjustSaturation(float f) {
+    s = clamp(s + f, 0, 1);
     return this;
   }
 

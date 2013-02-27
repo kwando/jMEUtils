@@ -10,55 +10,61 @@ public class ColorMangler {
 
   /**
    * Darkens the input color by darken amount
+   *
    * @param color
    * @param amount
    * @return darkened color
    */
   public static ColorRGBA darken(ColorRGBA color, float amount) {
-    return HSLAColor.fromRGBA(color).darken(amount).toRGBA(color);
+    return HSLAColor.fromRGBA(color).adjustLightness(-amount).toRGBA(color);
   }
 
   /**
    * Lightens the color
+   *
    * @param color
    * @param amount
    * @return lightened color
    */
   public static ColorRGBA lighten(ColorRGBA color, float amount) {
-    return HSLAColor.fromRGBA(color).lighten(amount).toRGBA(color);
+    return HSLAColor.fromRGBA(color).adjustLightness(amount).toRGBA(color);
   }
 
   /**
    * Saturates color
+   *
    * @param color
    * @param amount
    * @return saturated color
    */
   public static ColorRGBA saturate(ColorRGBA color, float amount) {
-    return HSLAColor.fromRGBA(color).saturate(amount).toRGBA(color);
+    return HSLAColor.fromRGBA(color).adjustSaturation(amount).toRGBA(color);
   }
 
   /**
    * Desaturates the color by amount
+   *
    * @param color
    * @param amount
    * @return desaturated color
    */
   public static ColorRGBA desaturate(ColorRGBA color, float amount) {
-    return HSLAColor.fromRGBA(color).desaturate(amount).toRGBA(color);
+    return HSLAColor.fromRGBA(color).adjustSaturation(-amount).toRGBA(color);
   }
 
   /**
    * Converts color into grayscale
+   *
    * @param color
    * @return grayscale color
    */
   public static ColorRGBA grayscale(ColorRGBA color) {
-    return HSLAColor.fromRGBA(color).desaturate(1).toRGBA(color);
+    return HSLAColor.fromRGBA(color).adjustSaturation(-1).toRGBA(color);
   }
 
   /**
    * Invert the color
+   *
    * @param color
    * @return inverted color
    */
@@ -71,6 +77,7 @@ public class ColorMangler {
 
   /**
    * Sets the color to its complement color
+   *
    * @param color
    * @return the complement color
    */
