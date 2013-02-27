@@ -1,3 +1,5 @@
+package me.merciless.utils;
+
 
 import com.jme3.math.ColorRGBA;
 import me.merciless.utils.ColorMangler;
