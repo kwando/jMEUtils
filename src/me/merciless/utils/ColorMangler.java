@@ -15,7 +15,7 @@ public class ColorMangler {
    * @return darkened color
    */
   public static ColorRGBA darken(ColorRGBA color, float amount) {
-    return HSLAColor.fromRGBA(color).darken(amount).toRGBA();
+    return HSLAColor.fromRGBA(color).darken(amount).toRGBA(color);
   }
 
   /**
@@ -25,7 +25,7 @@ public class ColorMangler {
    * @return lightened color
    */
   public static ColorRGBA lighten(ColorRGBA color, float amount) {
-    return HSLAColor.fromRGBA(color).lighten(amount).toRGBA();
+    return HSLAColor.fromRGBA(color).lighten(amount).toRGBA(color);
   }
 
   /**
@@ -35,7 +35,7 @@ public class ColorMangler {
    * @return saturated color
    */
   public static ColorRGBA saturate(ColorRGBA color, float amount) {
-    return HSLAColor.fromRGBA(color).saturate(amount).toRGBA();
+    return HSLAColor.fromRGBA(color).saturate(amount).toRGBA(color);
   }
 
   /**
@@ -45,7 +45,7 @@ public class ColorMangler {
    * @return desaturated color
    */
   public static ColorRGBA desaturate(ColorRGBA color, float amount) {
-    return HSLAColor.fromRGBA(color).desaturate(amount).toRGBA();
+    return HSLAColor.fromRGBA(color).desaturate(amount).toRGBA(color);
   }
 
   /**
@@ -54,7 +54,7 @@ public class ColorMangler {
    * @return grayscale color
    */
   public static ColorRGBA grayscale(ColorRGBA color) {
-    return HSLAColor.fromRGBA(color).desaturate(1).toRGBA();
+    return HSLAColor.fromRGBA(color).desaturate(1).toRGBA(color);
   }
 
   /**
