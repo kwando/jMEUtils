@@ -84,4 +84,27 @@ public class ColorMangler {
   public static ColorRGBA complement(ColorRGBA color) {
     return HSLAColor.fromRGBA(color).adjustHue(.5f).toRGBA(color);
   }
+
+  /**
+   * Tints the given color (adding white).
+   *
+   * @param color
+   * @return the tinted color
+   */
+  public static ColorRGBA tint(ColorRGBA color, float tint) {
+    color.interpolate(color, ColorRGBA.White, tint);
+    return color;
+  }
+
+  /**
+   * Tints the given color (adding black).
+   *
+   * @param color
+   * @param shade the amount to shade
+   * @return the tinted color
+   */
+  public static ColorRGBA shade(ColorRGBA color, float shade) {
+    color.interpolate(color, ColorRGBA.Black, shade);
+    return color;
+  }
 }
