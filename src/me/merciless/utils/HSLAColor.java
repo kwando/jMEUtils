@@ -5,7 +5,7 @@ import com.jme3.math.ColorRGBA;
 /**
  * @author kwando
  */
-final class HSLAColor {
+public final class HSLAColor {
 
   private float h;
   private float s;
@@ -13,14 +13,14 @@ final class HSLAColor {
   private float a;
   public static float EPSILON = 0.00001f;
 
-  HSLAColor(float hue, float saturation, float lightness, float alpha) {
+  public HSLAColor(float hue, float saturation, float lightness, float alpha) {
     this.h = hue;
     this.s = saturation;
     this.l = lightness;
     this.a = alpha;
   }
 
-  ColorRGBA toRGBA(ColorRGBA rgba) {
+  public ColorRGBA toRGBA(ColorRGBA rgba) {
     float m2 = l <= 0.5f ? l * (s + 1) : l + s - l * s;
     float m1 = l * 2 - m2;
 
@@ -32,7 +32,7 @@ final class HSLAColor {
     return rgba;
   }
 
-  ColorRGBA toRGBA() {
+  public ColorRGBA toRGBA() {
     return toRGBA(new ColorRGBA());
   }
 
@@ -51,7 +51,7 @@ final class HSLAColor {
     return this;
   }
 
-  static HSLAColor fromRGBA(ColorRGBA rgba) {
+  public static HSLAColor fromRGBA(ColorRGBA rgba) {
     float M = Math.max(rgba.r, Math.max(rgba.g, rgba.b));
     float m = Math.min(rgba.r, Math.min(rgba.g, rgba.b));
 
