@@ -1,12 +1,13 @@
 package me.merciless.utils;
 
 import com.jme3.math.ColorRGBA;
+import com.jme3.math.FastMath;
 
 /**
  *
  * @author kwando
  */
-public class ColorMangler {
+public class ColorTools {
 
   /**
    * Darkens the input color by darken amount
@@ -106,5 +107,31 @@ public class ColorMangler {
   public static ColorRGBA shade(ColorRGBA color, float shade) {
     color.interpolate(color, ColorRGBA.Black, shade);
     return color;
+  }
+
+  /**
+   * This methods applies gamma correction to the passed color.
+   * 
+   * @param gamma
+   * @param color
+   * @return the camma corrected color
+   */
+  public static ColorRGBA gamma(float gamma, ColorRGBA color) {
+    return gamma(gamma, color, color);
+  }
+
+    /**
+   * This methods applies gamma correction to the passed color and sets it on the outColor.
+   * 
+   * @param gamma
+   * @param color
+   * @param outColor 
+   * @return the camma corrected color
+   */
+  public static ColorRGBA gamma(float gamma, ColorRGBA color, ColorRGBA outColor) {
+    outColor.r = FastMath.pow(color.r, gamma);
+    outColor.g = FastMath.pow(color.g, gamma);
+    outColor.b = FastMath.pow(color.b, gamma);
+    return outColor;
   }
 }
