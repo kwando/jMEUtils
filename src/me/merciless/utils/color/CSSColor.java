@@ -1,6 +1,5 @@
-package me.merciless.utils;
+package me.merciless.utils.color;
 
-import me.merciless.utils.color.*;
 import com.jme3.math.ColorRGBA;
 import java.lang.reflect.Field;
 
