@@ -2,7 +2,7 @@ package me.merciless.utils.tests;
 
 
 import com.jme3.math.ColorRGBA;
-import me.merciless.utils.ColorMangler;
+import me.merciless.utils.ColorTools;
 import me.merciless.utils.HSLAColor;
 
 /**
@@ -15,7 +15,7 @@ public class TestColorMangler {
     System.out.println(HSLAColor.fromRGBA(ColorRGBA.Red));
     System.out.println(HSLAColor.fromRGBA(ColorRGBA.Blue));
     
-    testConvert("Red", ColorMangler.darken(ColorRGBA.Blue.clone(), .2f));
+    testConvert("Red", ColorTools.darken(ColorRGBA.Blue.clone(), .2f));
     testConvert("Green", ColorRGBA.Green);
     testConvert("Blue", ColorRGBA.Blue);
     testConvert("Gray", ColorRGBA.Gray);
